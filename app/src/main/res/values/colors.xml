@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#000000</color>
+    <color name="purple_500">#000000</color>
+    <color name="purple_700">#000000</color>
+    <color name="teal_200">#000000</color>
+    <color name="teal_700">#000000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_splash">#112061</color>
+    <color name="bg_color">#F9D6D7</color>
+    <color name="tab_layout_bg">#F77B08</color>
+    <color name="button_color">#0C85DD</color>
+    <color name="bg_page">#F6F6F6</color>
+    <color name="white1">#FFFFFFFF</color>
+    <color name="fon">#083AC9</color>
+    <color name="colorGradientStart">#5612d6</color>
+    <color name="colorGradientCenter">#210cae</color>
+    <color name="colorGradientEnd">#2472fc</color>
+</resources>
