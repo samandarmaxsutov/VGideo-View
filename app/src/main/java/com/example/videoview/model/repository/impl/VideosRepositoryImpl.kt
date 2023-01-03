@@ -11,17 +11,16 @@ import com.example.videoview.model.data.VideoData
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class VideosRepositoryImpl private constructor() : VideosRepository {
+class VideosRepositoryImpl private constructor(): VideosRepository {
 
-    companion object {
-        private var videosRepositoryImpl: VideosRepository? = null
-        fun init() {
-            if (videosRepositoryImpl == null) {
+    companion object{
+        private var videosRepositoryImpl: VideosRepository?=null
+        fun init(){
+            if (videosRepositoryImpl ==null){
                 videosRepositoryImpl = VideosRepositoryImpl()
             }
         }
-
-        fun getVideosRepository() = videosRepositoryImpl!!
+        fun getVideosRepository()= videosRepositoryImpl!!
     }
 
     private val db = Firebase.firestore
@@ -38,7 +37,7 @@ class VideosRepositoryImpl private constructor() : VideosRepository {
             .addOnFailureListener {
                 liveData.value = Result.failure(it)
             }
-        progressBar.value = false
+        progressBar.value=false
         return liveData
     }
 
@@ -52,7 +51,7 @@ class VideosRepositoryImpl private constructor() : VideosRepository {
             }
             .addOnFailureListener { liveData.value = Result.failure(it) }
 
-        progressBar.value = false
+        progressBar.value=false
         return liveData
     }
 
@@ -65,8 +64,7 @@ class VideosRepositoryImpl private constructor() : VideosRepository {
             liveData.addDisposable(getAll()) { liveData.value = it }
         }
 
-
-        progressBar.value = false
+        progressBar.value=false
         return liveData
     }
 
@@ -79,20 +77,15 @@ class VideosRepositoryImpl private constructor() : VideosRepository {
             }
             .addOnFailureListener {
                 liveData.value = Result.failure(it)
-
-
-                progressBar.value = false
-                return liveData
             }
-
-        private fun <T, K> MediatorLiveData<T>.addDisposable(
-            source: LiveData<K>,
-            block: Observer<K>
-        ) {
-            addSource(source) {
-                block.onChanged(it)
-                removeSource(source)
-            }
-        }
-
+        return liveData
     }
+
+    private fun <T, K> MediatorLiveData<T>.addDisposable(source: LiveData<K>, block: Observer<K>) {
+        addSource(source) {
+            block.onChanged(it)
+            removeSource(source)
+        }
+    }
+
+}
